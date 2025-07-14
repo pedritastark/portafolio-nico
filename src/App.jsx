@@ -2,7 +2,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Navbar } from './components/Navbar';
 
-// 1. Importamos todos nuestros nuevos componentes de página
+// 1. Importamos el nuevo componente
+import { WhatsAppButton } from './components/WhatsAppButton';
+
 import { HomePage } from './pages/HomePage';
 import { ShowsPage } from './pages/ShowsPage';
 import { ServicesPage } from './pages/ServicesPage';
@@ -13,9 +15,11 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
+      
+      {/* 2. Añadimos el botón de WhatsApp aquí */}
+      <WhatsAppButton />
 
       <Routes>
-        {/* 2. Reemplazamos los 'element' con nuestros componentes */}
         <Route path="/" element={<HomePage />} />
         <Route path="/shows" element={<ShowsPage />} />
         <Route path="/servicios" element={<ServicesPage />} />

@@ -23,5 +23,23 @@ export const theme = createTheme({
       secondary: '#b3b3b3',
     },
   },
-  // ... (el resto del archivo typography se queda igual)
+  typography: {
+    fontFamily: [
+      'Montserrat', // La nueva fuente para títulos y elementos con peso
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif'
+    ].join(','),
+    h1: {
+      fontWeight: 900, // La versión más gruesa que importamos
+    },
+    h2: {
+      fontWeight: 700,
+    },
+    h3: {
+      fontWeight: 700,
+    },
+    // Puedes seguir personalizando
+  },
 });
