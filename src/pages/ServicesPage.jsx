@@ -88,15 +88,29 @@ export const ServicesPage = () => {
             modifier: 1,
             slideShadows: true,
           }}
-          navigation
+          navigation={{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          }}
           pagination={{ clickable: true }}
           modules={[EffectCoverflow, Pagination, Navigation]}
+          
+          // --- INICIA EL CAMBIO AQUÍ ---
+          style={{
+            paddingBottom: '50px', // El padding que ya teníamos
+            '--swiper-pagination-color': '#ffab00', // Color para el punto ACTIVO (dorado)
+            '--swiper-pagination-bullet-inactive-color': '#9E9E9E', // Color para los puntos INACTIVOS (gris)
+          }}
+          // --- TERMINA EL CAMBIO AQUÍ ---
         >
           {servicesData.map((service, index) => (
             <SwiperSlide key={index} style={{ width: '350px', height: 'auto', paddingBottom: '50px' }}>
               <ServiceCard {...service} />
             </SwiperSlide>
           ))}
+          
+            <div className="swiper-button-next" style={{ color: '#ffab00' }}></div>
+            <div className="swiper-button-prev" style={{ color: '#ffab00' }}></div>
         </Swiper>
       </Container>
     </Box>
