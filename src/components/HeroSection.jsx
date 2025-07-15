@@ -3,7 +3,6 @@ import React from 'react';
 import { Box, Typography, Button, Stack, Card, CardContent, CardMedia, Container } from '@mui/material';
 import { Link } from 'react-router-dom';
 import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
-
 // CORRECCIÓN: Usamos la imagen .png como indicaste. 
 // Asegúrate de que tu archivo en la carpeta 'src/assets/' se llame 'hero-image.png'.
 import heroImage from '../assets/hero-image.png';
@@ -99,12 +98,12 @@ export const HeroSection = () => {
                       Ver Shows
                     </Button>
                     <Button
-                      component={Link}
+                      component={Link} 
                       to="/servicios"
-                      variant="outlined"
-                      color="secondary"
+                      variant="contained"
+                      color="white"
                       size="large"
-                      sx={{ fontWeight: 'bold' }}
+                      sx={{ fontWeight: 'bold', backgroundColor:"secondary.main" }}
                     >
                       Mis Servicios
                     </Button>
