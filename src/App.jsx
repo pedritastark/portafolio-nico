@@ -14,7 +14,6 @@ function App() {
     <BrowserRouter>
       <Navbar />
       
-      {/* 2. Añadimos el botón de WhatsApp aquí */}
       <WhatsAppButton />
 
       <Routes>
