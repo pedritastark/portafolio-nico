@@ -24,6 +24,7 @@ const navItems = [
   { text: 'Shows', path: '/shows' },
   { text: 'Servicios', path: '/servicios' },
   { text: 'Galería', path: '/galeria' },
+  { text: 'Acerca de Mí', path: '/acerca'},
   { text: 'Contacto', path: '/contacto' },
 ];
 
