@@ -2,18 +2,18 @@
 import React from 'react';
 import { Box, Typography, Container, Grid, Card, CardContent, Stack, List, ListItem, ListItemIcon } from '@mui/material';
 
-// --- 1. IMPORTACIONES DE SWIPER ---
+// Importaciones de Swiper
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Mousewheel, Pagination, A11y } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-// Fondos e imágenes (se mantienen igual)
-import fondoContacto from '../assets/fondo-secundario.jpg';
+// Fondos e imágenes
+import fondoContacto from '../assets/fondo-contacto.jpg';
 import isotipoPurpura from '../assets/isotipo-purpura.png';
 import iconCorona from '../assets/icon-corona.jpg';
 import iconEstrella from '../assets/icon-estrella.jpg';
-import iconCorazon from '../assets/icon-corazon.png';
+import iconCorazon from '../assets/icon-corazon.jpg';
 
 // Los datos de la trayectoria se mantienen igual
 const trajectoryItems = {
@@ -35,23 +35,24 @@ export const AboutPage = () => {
     <Box sx={{
       backgroundImage: `url(${fondoContacto})`,
       backgroundRepeat: 'repeat',
-      height: 'calc(100vh - 68px)', // Ocupa toda la altura disponible bajo el navbar
+      height: 'calc(100vh - 68px)',
       overflow: 'hidden'
     }}>
-      {/* --- 2. CONTENEDOR PRINCIPAL DE SWIPER --- */}
       <Swiper
-        direction={'vertical'} // Deslizamiento vertical
+        direction={'vertical'}
         slidesPerView={1}
         spaceBetween={30}
-        mousewheel={true} // Permite el control con la rueda del mouse
-        pagination={{ clickable: true }} // Activa los puntos de navegación laterales
+        mousewheel={true}
+        pagination={{ clickable: true }}
         modules={[Mousewheel, Pagination, A11y]}
         style={{ height: '100%' }}
       >
         {/* --- SLIDE 1: ¿QUIÉN SOY? --- */}
-        <SwiperSlide style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        {/* CAMBIO: Se añade 'overflowY' y 'padding' al estilo del slide */}
+        <SwiperSlide style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', overflowY: 'auto', paddingTop: '40px', paddingBottom: '40px' }}>
           <Container maxWidth="md">
-            <Card sx={{ borderRadius: 4, p: { xs: 2, md: 3 }, maxHeight: '90vh', overflowY: 'auto' }}>
+            {/* CAMBIO: Se quita 'maxHeight' y 'overflowY' de la Card */}
+            <Card sx={{ borderRadius: 4, p: { xs: 2, md: 3 } }}>
               <CardContent>
                 <Grid container spacing={4} alignItems="center">
                   <Grid item xs={12} md={4} sx={{ textAlign: 'center' }}>
@@ -78,9 +79,11 @@ export const AboutPage = () => {
         </SwiperSlide>
 
         {/* --- SLIDE 2: TRAYECTORIA --- */}
-        <SwiperSlide style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        {/* CAMBIO: Se añade 'overflowY' y 'padding' al estilo del slide */}
+        <SwiperSlide style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', overflowY: 'auto', paddingTop: '40px', paddingBottom: '40px' }}>
           <Container maxWidth="md">
-            <Card sx={{ borderRadius: 4, p: { xs: 2, md: 3 }, maxHeight: '90vh', overflowY: 'auto' }}>
+            {/* CAMBIO: Se quita 'maxHeight' y 'overflowY' de la Card */}
+            <Card sx={{ borderRadius: 4, p: { xs: 2, md: 3 } }}>
               <CardContent>
                 <Typography variant="h4" component="h2" fontWeight="bold" sx={{ mb: 3 }}>
                   Trayectoria
