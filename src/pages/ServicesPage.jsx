@@ -75,7 +75,7 @@ Me gustaría recibir más información. Por lo que vi, el show:
         { text: "Lleva herramientas concretas, no solo inspiración.", icon: iconCorona },
       ],
       imagePosition: '50% 72%',
-      whatsappUrl: createWhatsappUrl(`
+      whatsappUrl: createWhatsappUrl(`s
 ¡Hola! Quisiera más información sobre la *Conferencia "Piensa Positivo y cambia tu vida"*. 🧠✨
 
 Me interesa mucho la idea de una charla interactiva que transforma la forma en que enfrentamos la vida. Entiendo que:
@@ -164,7 +164,7 @@ export const ServicesPage = () => {
       alignItems: 'center',
       overflow: 'hidden',
     }}>
-      <Container maxWidth="lg" sx={{ py: 2, position: 'relative' }}>
+      <Container maxWidth="lg" sx={{ py: { xs: 1, md: 5 }, position: 'relative' }}>
 
         <Swiper
           effect={'coverflow'}

@@ -1,55 +1,56 @@
 // src/components/HeroSection.jsx
 import React from 'react';
-import { Box, Typography, Button, Stack, Card, CardContent, CardMedia, Container } from '@mui/material';
+import { Box, Typography, Button, Stack, Card, CardContent, Container } from '@mui/material';
 import { Link } from 'react-router-dom';
-import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
-// CORRECCIÓN: Usamos la imagen .png como indicaste. 
-// Asegúrate de que tu archivo en la carpeta 'src/assets/' se llame 'hero-image.png'.
-import heroImage from '../assets/hero-image.png';
 
 export const HeroSection = () => {
+  // --- CAMBIO AQUÍ: Pega la URL de "Incorporar" de tu video de YouTube ---
+  const videoEmbedUrl = "https://www.youtube.com/embed/8CHdR1hhMBQ&t=4s"; // Reemplaza VIDEO_ID_AQUI
+
   return (
     <Container maxWidth="lg">
-      {/* --- ESTRUCTURA DE LAYOUT DEFINITIVA --- */}
       <Box sx={{
         display: 'flex',
-        // CORRECCIÓN: Forzamos la dirección de los elementos. 'column' en móvil y 'row' en desktop.
         flexDirection: { xs: 'column', md: 'row' }, 
         alignItems: 'center',
-        gap: 5, // Aumentamos un poco el espacio entre columnas
+        gap: 5,
       }}>
 
-        {/* --- COLUMNA 1: CARD DE IMAGEN/VIDEO --- */}
-        {/* Usamos 'width' para que ocupe todo el ancho en móvil y la mitad en desktop */}
+        {/* --- COLUMNA 1: VIDEO PLAYER --- */}
         <Box sx={{ width: { xs: '100%', md: '50%' } }}>
-          <Card sx={{
+          {/* Este Box crea un contenedor responsivo con aspecto 16:9 para el video */}
+          <Box sx={{
+            position: 'relative',
+            paddingTop: '56.25%', // Proporción 16:9 (9 / 16 = 0.5625)
             borderRadius: 3,
             overflow: 'hidden',
-            position: 'relative',
             boxShadow: '0 10px 40px rgba(0,0,0,0.7)',
           }}>
-            <CardMedia
-              component="img"
-              image={heroImage}
-              alt="Nicolás Garzón en el escenario"
-            />
-            <Box sx={{
-              position: 'absolute', top: 0, left: 0, width: '100%', height: '100%',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            }}>
-              <PlayCircleOutlineIcon sx={{ fontSize: { xs: 70, md: 90 }, color: 'white' }} />
-            </Box>
-          </Card>
+            <iframe
+              style={{
+                position: 'absolute',
+                top: 0,
+                left: 0,
+                width: '100%',
+                height: '100%',
+                border: 0,
+              }}
+              src={videoEmbedUrl}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </Box>
         </Box>
 
-        {/* --- COLUMNA 2: CARD DE TEXTO --- */}
+        {/* --- COLUMNA 2: CARD DE TEXTO (Se mantiene igual) --- */}
         <Box sx={{ width: { xs: '100%', md: '50%' } }}>
           <Card sx={{
             borderRadius: 3,
             backgroundColor: 'background.paper',
             boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
-            height: '100%', // Hacemos que la card ocupe toda la altura de la columna
+            height: '100%',
           }}>
             <CardContent sx={{ p: { xs: 3, md: 5 }, height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
               <Stack spacing={2} alignItems={{ xs: 'center', md: 'flex-start' }}>
@@ -64,7 +65,7 @@ export const HeroSection = () => {
                 </Typography>
                 
                 <Typography
-                  variant="h6" // CORRECCIÓN: Tamaño de subtítulo reducido
+                  variant="h6"
                   color="secondary.main"
                   sx={{
                     textAlign: { xs: 'center', md: 'left' },
@@ -86,26 +87,25 @@ export const HeroSection = () => {
                     huella, eso me hace feliz".
                 </Typography>
 
-                {/* --- BOTONES CON ALINEACIÓN CORREGIDA --- */}
                 <Box sx={{ width: '100%', display: 'flex', justifyContent: { xs: 'center', md: 'flex-start' } }}>
                   <Stack direction="row" spacing={2} sx={{ pt: 2 }}>
                     <Button
                       component={Link}
-                      to="/shows"
+                      to="/talleres" // Corregido para apuntar a talleres
                       variant="contained"
                       color="primary"
                       size="large"
                       sx={{ fontWeight: 'bold' }}
                     >
-                      Ver Shows
+                      Ver Talleres
                     </Button>
                     <Button
                       component={Link} 
                       to="/servicios"
                       variant="contained"
-                      color="white"
+                      color="secondary" // Cambiado para que use el color dorado
                       size="large"
-                      sx={{ fontWeight: 'bold', backgroundColor:"secondary.main" }}
+                      sx={{ fontWeight: 'bold', color: 'black' }}
                     >
                       Mis Servicios
                     </Button>

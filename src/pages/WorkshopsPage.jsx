@@ -3,13 +3,13 @@ import React, { useState } from 'react';
 import { Box, Typography, Container, Grid, Card, CardMedia, Button, List, ListItem, ListItemIcon, Tabs, Tab, Fade } from '@mui/material';
 
 // Fondos, Íconos e Imágenes
-import fondoPrincipal from '../assets/fondo-secundario.jpg';
+import fondoPrincipal from '../assets/fondo-negro.png';
 import iconCorona from '../assets/icon-corona.jpg';
 import iconEstrella from '../assets/icon-estrella.jpg';
 import iconCorazon from '../assets/icon-corazon.png';
 import tallerComediaImg from '../assets/gallery/show-31.jpg';
 import tallerFinanzasImg from '../assets/gallery/show-22.jpg';
-import tallerVozImg from '../assets/gallery/show-01.jpg';
+import tallerVozImg from '../assets/gallery/show-36.jpg';
 
 // Lógica de WhatsApp
 const phoneNumber = '573194914403';

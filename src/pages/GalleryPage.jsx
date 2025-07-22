@@ -1,7 +1,7 @@
 // src/pages/GalleryPage.jsx
 import React, { useState } from 'react';
 import { Box, Typography, Container, ImageList, ImageListItem, Modal, Fade } from '@mui/material';
-import fondoNegro from '../assets/fondo-negro.png';
+import fondoNegro from '../assets/fondo-secundario.jpg';
 
 // --- INICIA LA IMPORTACIÓN DE LAS 42 IMÁGENES ---
 import show01 from '../assets/gallery/show-01.jpg';

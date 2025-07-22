@@ -42,7 +42,7 @@ export const Navbar = () => {
                 '&.active': {
                   // Ya no cambiamos el fondo
                   '& .MuiListItemText-primary': {
-                    color: '#FFEECC', // Solo cambiamos el color de la letra a blanco
+                    color: '#FFEECC', // amarillo más blanco
                   },
                 },
               }}
