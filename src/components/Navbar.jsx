@@ -6,7 +6,6 @@ import { Link, NavLink } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import logo from '../assets/logo-principal.png';
 
-// --- CAMBIO: Se reordena el array para un flujo lógico y se mantiene "Inicio" ---
 const navItems = [
   { text: 'Inicio', path: '/' },
   { text: 'Acerca de Mí', path: '/acerca' },
@@ -25,19 +24,36 @@ export const Navbar = () => {
     setDrawerOpen(!drawerOpen);
   };
 
+  // --- INICIA EL CAMBIO EN EL MENÚ MÓVIL (DRAWER) ---
   const drawer = (
     <Box
       onClick={handleDrawerToggle}
       sx={{ textAlign: 'center', backgroundColor: 'ochre.main', height: '100%' }}
     >
       <List>
-        {/* El menú móvil ahora respetará el nuevo orden */}
         {navItems.map((item) => (
           <ListItem key={item.text} disablePadding>
-            <ListItemButton component={NavLink} to={item.path} sx={{ textAlign: 'center' }}>
+            <ListItemButton
+              component={NavLink}
+              to={item.path}
+              sx={{
+                textAlign: 'center',
+                // Estilo para la pestaña activa en el menú móvil
+                '&.active': {
+                  // Ya no cambiamos el fondo
+                  '& .MuiListItemText-primary': {
+                    color: '#FFEECC', // Solo cambiamos el color de la letra a blanco
+                  },
+                },
+              }}
+            >
               <ListItemText
                 primary={item.text}
-                primaryTypographyProps={{ color: 'ochre.contrastText', fontWeight: 'bold' }}
+                // El color por defecto sigue siendo negro
+                primaryTypographyProps={{
+                  color: 'ochre.contrastText',
+                  fontWeight: 'bold',
+                }}
               />
             </ListItemButton>
           </ListItem>
@@ -45,6 +61,7 @@ export const Navbar = () => {
       </List>
     </Box>
   );
+  // --- TERMINA EL CAMBIO EN EL MENÚ MÓVIL (DRAWER) ---
 
   return (
     <>
@@ -73,7 +90,6 @@ export const Navbar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' }, justifyContent: 'center' }}>
-            {/* --- CAMBIO: Se elimina el .filter() para mostrar "Inicio" en la barra de escritorio --- */}
             {navItems.map((item) => (
               <Button
                 key={item.text}

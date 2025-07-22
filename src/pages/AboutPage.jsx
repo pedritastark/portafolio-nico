@@ -3,78 +3,102 @@ import React from 'react';
 import { Box, Typography, Container, Grid, Card, CardContent, Stack, List, ListItem, ListItemIcon } from '@mui/material';
 
 // Fondos e imágenes
-import fondoContacto from '../assets/fondo-secundario.jpg';
+import fondoSecundario from '../assets/fondo-secundario.jpg';
 import isotipoPurpura from '../assets/isotipo-purpura.png';
 import iconCorona from '../assets/icon-corona.jpg';
 import iconEstrella from '../assets/icon-estrella.jpg';
 import iconCorazon from '../assets/icon-corazon.png';
 
-// Datos para la cuadrícula de Trayectoria
-const trajectoryItems = [
-  { text: "Participaciones en Sábados Felices (Canal Caracol), con victoria en uno de los episodios.", icon: iconEstrella },
-  { text: "Aparición en Buen Día Colombia (Canal RCN), mostrando versatilidad como comunicador.", icon: iconEstrella },
-  { text: "Fundador de Comedy Master Bogotá, fomentando la comedia de calidad en el país.", icon: iconCorona },
-  { text: "Parte del elenco del club de comedia de Juanpis González en el JP Bar.", icon: iconCorona },
-  { text: "Presentaciones de stand-up comedy en México, Ecuador y Canadá.", icon: iconCorazon },
-  { text: "Demostrando versatilidad al actuar también en inglés.", icon: iconCorazon },
-];
+// Datos de Trayectoria (la estructura de datos ya es perfecta para esto)
+const trajectoryData = {
+  "Apariciones en Medios de Comunicación": [
+    { text: "Distintas participaciones en Sábados Felices (Canal Caracol), destacándome con la victoria en uno de los episodios.", icon: iconEstrella },
+    { text: "Participación especial en Buen Día Colombia (Canal RCN), mostrando mi versatilidad como comunicador.", icon: iconEstrella },
+    { text: "Invitado en las noches de comedia de Radio 1, llevando entretenimiento y humor al formato radial.", icon: iconEstrella },
+  ],
+  "Liderazgo y Expansión de la Comedia en Colombia": [
+    { text: "Fundador de Comedy Master Bogotá, un club que fomenta la comedia de calidad, llevando espectáculos a múltiples ciudades y regiones del país.", icon: iconCorona },
+    { text: "Hice parte del elenco del prestigioso club de comedia de Juanpis González en el JP Bar.", icon: iconCorona },
+    { text: "Participante en festivales de talla internacional compartiendo escenario con artistas como 'Ventino' y 'Cali y el Dandee'.", icon: iconCorona },
+  ],
+  "Reconocimiento Internacional": [
+    { text: "Presentaciones internacionales de stand-up comedy en países como España, México, Ecuador y Canadá.", icon: iconCorazon },
+    { text: "Demostrando versatilidad al actuar en distintas audiencias y en distintos idiomas (Inglés).", icon: iconCorazon },
+  ],
+  "Experiencia en Shows Corporativos": [
+    { text: "Amplia trayectoria en espectáculos adaptados a contextos empresariales, ajustándome a las necesidades y objetivos de cada evento.", icon: iconEstrella },
+  ],
+  "Formación y Coaching": [
+    { text: "Certificación como coach de vida, combinando humor y desarrollo personal para inspirar y motivar.", icon: iconCorazon },
+    { text: "Profesional en Finanzas y comercio internacional con MBA.", icon: iconCorona },
+  ]
+};
 
 export const AboutPage = () => {
   return (
     <Box sx={{
-      backgroundImage: `url(${fondoContacto})`,
+      backgroundImage: `url(${fondoSecundario})`,
       backgroundRepeat: 'repeat',
       color: 'black',
       py: { xs: 5, md: 8 },
     }}>
       <Container maxWidth="md">
         <Stack spacing={5}>
-          {/* --- CARD 1: ¿QUIÉN SOY? (CON EL ISOTIPO RESTAURADO) --- */}
-          <Card sx={{ borderRadius: 4, p: { xs: 2, md: 3 } }}>
+          {/* --- CARD 1: ¿QUIÉN SOY? (Se mantiene igual) --- */}
+          <Card sx={{ borderRadius: 4, p: { xs: 2, md: 4 } }}>
             <CardContent>
-              <Grid container spacing={4} alignItems="center">
-                <Grid item xs={12} md={4} sx={{ textAlign: 'center' }}>
-                  <img src={isotipoPurpura} alt="Isotipo de Nicolás Garzón" style={{ maxWidth: '200px', width: '100%', height: 'auto' }} />
-                </Grid>
-                <Grid item xs={12} md={8}>
-                  <Typography variant="h4" component="h2" fontWeight="bold" sx={{ mb: 2 }}>
-                    ¿Quién Soy?
-                  </Typography>
-                  <Typography variant="h6" color="primary" fontWeight="600" sx={{ mb: 2 }}>
-                    Comediante, Conferencista, Profesional en Finanzas, Empresario y Coach de Vida.
-                  </Typography>
-                  <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
-                    Soy un profesional versátil que combina experiencia financiera, espíritu emprendedor y carisma como comunicador para impactar diversas audiencias.
-                  </Typography>
-                  <Typography variant="body1" fontStyle="italic" color="text.secondary">
-                    "La comedia y el stand-up son mi esencia, y me alegra saber que mi misión va más allá de las risas: inspirar, motivar y dejar una huella".
-                  </Typography>
-                </Grid>
-              </Grid>
+              <Stack spacing={3} alignItems="center">
+                <Box
+                  component="img"
+                  src={isotipoPurpura}
+                  alt="Isotipo de Nicolás Garzón"
+                  sx={{
+                    width: { xs: 150, md: 200 },
+                    height: 'auto',
+                  }}
+                />
+                <Typography variant="h4" component="h2" fontWeight="bold" textAlign="center">
+                  ¿Quién Soy?
+                </Typography>
+                <Typography variant="h6" color="primary" fontWeight="600" textAlign="center">
+                  Comediante, Conferencista, Profesional en Finanzas, Empresario y Coach de Vida.
+                </Typography>
+                <Typography variant="body1" color="text.secondary" textAlign="center" sx={{ maxWidth: '600px' }}>
+                  Soy un profesional versátil que combina experiencia financiera, espíritu emprendedor y carisma como comunicador para impactar diversas audiencias.
+                </Typography>
+                <Typography variant="body1" fontStyle="italic" color="text.secondary" textAlign="center" sx={{ maxWidth: '600px' }}>
+                  "La comedia y el stand-up son mi esencia, y me alegra saber que mi misión va más allá de las risas: inspirar, motivar y dejar una huella".
+                </Typography>
+              </Stack>
             </CardContent>
           </Card>
 
-          {/* --- SECCIÓN DE TRAYECTORIA CON GRID DE CARDS (SE MANTIENE IGUAL) --- */}
+          {/* --- SECCIÓN DE TRAYECTORIA (NUEVA ESTRUCTURA) --- */}
           <Box>
-            <Typography variant="h3" component="h2" fontWeight="900" align="center" sx={{ mb: 4 }}>
-              Trayectoria Destacada
+            {/* 1. Título principal fuera de las tarjetas */}
+            <Typography variant="h3" component="h2" fontWeight="900" align="center" sx={{ color: 'white', mb: 4 }}>
+              Trayectoria
             </Typography>
-            <Grid container spacing={3}>
-              {trajectoryItems.map((item, index) => (
-                <Grid item xs={12} sm={6} md={4} key={index}>
-                  <Card sx={{ 
-                    borderRadius: 3, 
-                    height: '100%', 
-                    display: 'flex', 
-                    flexDirection: 'column',
-                    textAlign: 'center',
-                    p: 2
-                  }}>
+            {/* 2. Grid que contendrá una tarjeta por cada categoría */}
+            <Grid container spacing={4}>
+              {Object.entries(trajectoryData).map(([category, items]) => (
+                // Lógica responsiva: En móvil 1 columna, en tablet/desktop 2 columnas
+                <Grid item xs={12} sm={6} key={category}>
+                  <Card sx={{ borderRadius: 3, p: 2, height: '100%' }}>
                     <CardContent>
-                      <img src={item.icon} alt="icon" style={{ width: '60px', height: 'auto', marginBottom: '16px' }}/>
-                      <Typography variant="body1" color="text.secondary">
-                        {item.text}
+                      <Typography variant="h5" fontWeight="bold" color="primary.main" sx={{ mb: 2 }}>
+                        {category}
                       </Typography>
+                      <List>
+                        {items.map((item, index) => (
+                          <ListItem key={index} disablePadding sx={{ mb: 1.5 }}>
+                            <ListItemIcon sx={{ minWidth: 44 }}>
+                              <img src={item.icon} alt="icon" style={{ width: '32px', height: 'auto' }} />
+                            </ListItemIcon>
+                            <Typography variant="body1" color="text.secondary">{item.text}</Typography>
+                          </ListItem>
+                        ))}
+                      </List>
                     </CardContent>
                   </Card>
                 </Grid>

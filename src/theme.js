@@ -14,6 +14,10 @@ export const theme = createTheme({
       main: '#E0A800', // Un tono de amarillo quemado (ocre)
       contrastText: '#000000', // El texto que mejor contrasta es el negro
     },
+    goldAccent: {
+      main: '#fcc75b',
+      contrastText: '#000',
+    },
     background: {
       default: '#121212',
       paper: '#1e1e1e',
@@ -21,6 +25,7 @@ export const theme = createTheme({
     text: {
       primary: '#ffffff',
       secondary: '#b3b3b3',
+      
     },
   },
   typography: {
