@@ -1,37 +1,24 @@
 // src/components/Navbar.jsx
-
 import React, { useState } from 'react';
-// ... (todas las importaciones se quedan igual)
-import {
-  AppBar,
-  Toolbar,
-  Button,
-  Box,
-  // Ya no necesitamos Container, así que puedes borrarlo de aquí
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-} from '@mui/material';
-import { Link } from 'react-router-dom';
+import { AppBar, Toolbar, Button, Box, IconButton, Drawer, List, ListItem, ListItemButton, ListItemText } from '@mui/material';
+import { Link, NavLink } from 'react-router-dom';
 
 import MenuIcon from '@mui/icons-material/Menu';
 import logo from '../assets/logo-principal.png';
 
+// --- CAMBIO: Se reordena el array para un flujo lógico y se mantiene "Inicio" ---
 const navItems = [
-  { text: 'Shows', path: '/shows' },
+  { text: 'Inicio', path: '/' },
+  { text: 'Acerca de Mí', path: '/acerca' },
   { text: 'Servicios', path: '/servicios' },
+  { text: 'Talleres', path: '/talleres' },
   { text: 'Galería', path: '/galeria' },
-  { text: 'Acerca de Mí', path: '/acerca'},
   { text: 'Contacto', path: '/contacto' },
 ];
 
 const logoContainerWidth = 170;
 
 export const Navbar = () => {
-  // ... (toda la lógica del drawer se queda igual)
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -44,15 +31,13 @@ export const Navbar = () => {
       sx={{ textAlign: 'center', backgroundColor: 'ochre.main', height: '100%' }}
     >
       <List>
+        {/* El menú móvil ahora respetará el nuevo orden */}
         {navItems.map((item) => (
           <ListItem key={item.text} disablePadding>
-            <ListItemButton component={Link} to={item.path} sx={{ textAlign: 'center' }}>
+            <ListItemButton component={NavLink} to={item.path} sx={{ textAlign: 'center' }}>
               <ListItemText
                 primary={item.text}
-                primaryTypographyProps={{
-                  color: 'ochre.contrastText',
-                  fontWeight: 'bold',
-                }}
+                primaryTypographyProps={{ color: 'ochre.contrastText', fontWeight: 'bold' }}
               />
             </ListItemButton>
           </ListItem>
@@ -64,56 +49,47 @@ export const Navbar = () => {
   return (
     <>
       <AppBar component="nav" position="sticky" elevation={0} sx={{ backgroundColor: 'background.default' }}>
-        <Toolbar disableGutters sx={{ px: { xs: 2, md: 4 } }}> 
-          
-          {/* --- VISTA MÓVIL: ÍCONO DE MENÚ --- */}
+        <Toolbar disableGutters sx={{ px: { xs: 2, md: 4 } }}>
           <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              edge="start"
-              onClick={handleDrawerToggle}
-              sx={{ display: { md: 'none' } }}
-            >
-              <MenuIcon />
-            </IconButton>
+            color="inherit"
+            aria-label="open drawer"
+            edge="start"
+            onClick={handleDrawerToggle}
+            sx={{ display: { sm: 'none' } }}
+          >
+            <MenuIcon />
+          </IconButton>
 
-          {/* ... (El resto del código del layout de 3 partes y del logo móvil se queda exactamente igual) ... */}
-          
-          {/* 1. SECCIÓN IZQUIERDA: EL LOGO */}
-          <Box sx={{ 
-            display: { xs: 'none', md: 'flex' },
-            width: logoContainerWidth, 
-            justifyContent: 'flex-start' 
-          }}>
+          <Box sx={{ display: { xs: 'none', sm: 'flex' }, width: logoContainerWidth, justifyContent: 'flex-start' }}>
             <Link to="/">
               <img src={logo} alt="Nicomediante Soy Logo" style={{ height: '45px', verticalAlign: 'middle' }} />
             </Link>
           </Box>
 
-          {/* LOGO PARA MÓVIL (CENTRADO) */}
-          <Box sx={{ flexGrow: 1, display: { md: 'none' }, textAlign: 'center' }}>
-              <Link to="/">
-                  <img src={logo} alt="Nicomediante Soy Logo" style={{ height: '45px', verticalAlign: 'middle' }} />
-              </Link>
+          <Box sx={{ flexGrow: 1, display: { sm: 'none' }, textAlign: 'center' }}>
+            <Link to="/">
+              <img src={logo} alt="Nicomediante Soy Logo" style={{ height: '45px', verticalAlign: 'middle' }} />
+            </Link>
           </Box>
 
-          {/* 2. SECCIÓN CENTRAL: LOS ENLACES */}
-          <Box sx={{ 
-            flexGrow: 1, 
-            display: { xs: 'none', md: 'flex' },
-            justifyContent: 'center' 
-          }}>
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', sm: 'flex' }, justifyContent: 'center' }}>
+            {/* --- CAMBIO: Se elimina el .filter() para mostrar "Inicio" en la barra de escritorio --- */}
             {navItems.map((item) => (
               <Button
                 key={item.text}
-                component={Link}
+                component={NavLink}
                 to={item.path}
                 sx={{
                   color: 'text.primary',
                   mx: 1.5,
+                  borderRadius: 2,
                   '&:hover': {
                     color: 'secondary.main',
-                    backgroundColor: 'transparent',
+                    backgroundColor: 'rgba(255, 171, 0, 0.1)',
+                  },
+                  '&.active': {
+                    color: 'secondary.main',
+                    fontWeight: 'bold'
                   },
                 }}
               >
@@ -122,16 +98,10 @@ export const Navbar = () => {
             ))}
           </Box>
 
-          {/* 3. SECCIÓN DERECHA: EL ESPACIADOR INVISIBLE */}
-          <Box sx={{ 
-            display: { xs: 'none', md: 'flex' },
-            width: logoContainerWidth
-          }} />
-            
+          <Box sx={{ display: { xs: 'none', sm: 'flex' }, width: logoContainerWidth }} />
         </Toolbar>
       </AppBar>
 
-      {/* El código del Drawer se queda igual */}
       <Box component="nav">
         <Drawer
           variant="temporary"
@@ -139,7 +109,7 @@ export const Navbar = () => {
           onClose={handleDrawerToggle}
           ModalProps={{ keepMounted: true }}
           sx={{
-            display: { xs: 'block', md: 'none' },
+            display: { sm: 'none' },
             '& .MuiDrawer-paper': { boxSizing: 'border-box', width: '80%', backgroundColor: 'ochre.main' },
           }}
         >

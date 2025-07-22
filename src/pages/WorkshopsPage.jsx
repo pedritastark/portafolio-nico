@@ -36,7 +36,7 @@ const upcomingShows = [
   },
 ];
 
-export const ShowsPage = () => {
+export const WorkshopsPage = () => {
   return (
     <Box sx={{
       backgroundImage: `url(${fondoSecundario})`,
@@ -59,7 +59,7 @@ export const ShowsPage = () => {
             <Typography variant="h6" color="secondary.main" fontWeight="bold">SHOW DESTACADO</Typography>
             <Typography variant="h3" component="h2" fontWeight="bold" sx={{ mt: 1, mb: 2 }}>"Cada Día Más Top"</Typography>
             <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-              Es un show de comedia creado para convertir los desafíos cotidianos en oportunidades de crecimiento. [cite_start]A través de historias llenas de humor y reflexión, este espectáculo muestra cómo el poder de la risa puede fortalecer la resiliencia y generar conexiones auténticas que dejan huella. [cite: 60, 61, 62]
+            Ideal para cualquier tipo de evento que busque transformar momentos comunes en experiencias extraordinarias.            
             </Typography>
             <Button
               component={Link}

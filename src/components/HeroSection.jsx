@@ -73,15 +73,17 @@ export const HeroSection = () => {
                     fontWeight: '700'
                   }}
                 >
-                  Comediante | Conferencista | Coach de Vida
+                  Comediante | Conferencista | Coach | Presentador | Financiero
                 </Typography>
 
                 <Typography
                   variant="body1"
                   color="text.secondary"
-                  sx={{ my: 2, textAlign: { xs: 'center', md: 'left' }, fontSize: '1.1rem' }}
+                  sx={{ my: 2, textAlign: { xs: 'center', md: 'left' }, fontSize: '1rem' }}
                 >
-                  "Mi misión va más allá de las risas: inspirar, motivar y dejar una huella".
+                  "La comedia y el stand-up son mi esencia, y me alegra saber que
+                    mi misión va más allá de las risas: inspirar, motivar y dejar una
+                    huella, eso me hace feliz".
                 </Typography>
 
                 {/* --- BOTONES CON ALINEACIÓN CORREGIDA --- */}
