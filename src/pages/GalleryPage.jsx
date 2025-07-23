@@ -1,9 +1,10 @@
 // src/pages/GalleryPage.jsx
 import React, { useState } from 'react';
 import { Box, Typography, Container, ImageList, ImageListItem, Modal, Fade } from '@mui/material';
-import fondoNegro from '../assets/fondo-secundario.jpg';
+import fondoNegro from '../assets/fondo-negro.png';
 
-// --- INICIA LA IMPORTACIÓN DE LAS 42 IMÁGENES ---
+// --- IMPORTACIÓN DE LAS 42 IMÁGENES ---
+// (Las importaciones se mantienen igual)
 import show01 from '../assets/gallery/show-01.jpg';
 import show02 from '../assets/gallery/show-02.jpg';
 import show03 from '../assets/gallery/show-03.jpg';
@@ -46,39 +47,74 @@ import show39 from '../assets/gallery/show-39.jpg';
 import show40 from '../assets/gallery/show-40.jpg';
 import show41 from '../assets/gallery/show-41.jpg';
 import show42 from '../assets/gallery/show-42.jpg';
-// --- TERMINA LA IMPORTACIÓN DE LAS 42 IMÁGENES ---
 
-const genericTitle = "Una noche de comedia y grandes momentos.";
+// --- DATOS DE LA GALERÍA CON ORDEN MEZCLADO Y DESCRIPCIONES PERSONALIZADAS ---
+const galleryData = [
+  // Bloque 1
+  { img: show01, title: 'Apuntando a nuevas metas y conectando con el público en cada show.', cols: 2, rows: 2 },
+  { img: show21, title: 'En el escenario principal, conectando con miles de personas. La energía de un gran festival.' },
+  { img: show09, title: 'Cada gesto cuenta. Preparado para guiar al público a través de una historia llena de risas.' },
+  { img: show37, title: 'Casa llena en Guadalupe Bar. La energía del público es el motor de cada show.', cols: 2 },
+  
+  // Bloque 2
+  { img: show11, title: 'Llevando la comedia a nuevas alturas. Una actuación llena de energía y pasión por hacer reír.', cols: 2, rows: 2 },
+  { img: show35, title: 'En el set de "Sábados Felices", un escenario que es parte de la historia del humor en Colombia.' },
+  { img: show20, title: 'La comedia en cualquier lugar. Un momento de pausa y estilo en la ciudad.' },
+  
+  // Bloque 3
+  { img: show40, title: "Bajo mi propia luz. 'Be Yourself' no es solo un lema, es la esencia de mi comedia.", cols: 2 },
+  { img: show05, title: '¡La comedia en su máxima expresión! Un instante de pura energía y conexión.', cols: 2, rows: 2 },
+  
+  // Bloque 4
+  { img: show14, title: '¿Y ahora qué sigue? Un gesto de comedia que invita a la reflexión y a la siguiente carcajada.' },
+  { img: show18, title: 'Detrás del escenario, segundos antes de salir a escena. La calma antes de la energía del show.' },
+  { img: show22, title: 'El mundo de las finanzas en acción. Combinando la pasión por los mercados con la comunicación efectiva.', cols: 2 },
+  
+  // Bloque 5
+  { img: show33, title: 'Noches de stand-up en "El Berraco". Historias y risas bajo las luces de neón.', cols: 2, rows: 2 },
+  { img: show02, title: 'La energía de la comedia en primer plano, compartiendo una historia y buscando la próxima carcajada.' },
+  { img: show24, title: 'Bajo el foco, en la intimidad del escenario. Un momento de reflexión y comedia pura.' },
 
-// Unimos todas las imágenes importadas en un solo array para usarlo fácilmente
-const allImages = [
-  show01, show02, show03, show04, show05, show06, show07, show08, show09, show10,
-  show11, show12, show13, show14, show15, show16, show17, show18, show19, show20,
-  show21, show22, show23, show24, show25, show26, show27, show28, show29, show30,
-  show31, show32, show33, show34, show35, show36, show37, show38, show39, show40,
-  show41, show42
+  // Bloque 6
+  { img: show26, title: 'Apuntando alto en la UEMC. La formación y la comedia como pilares del crecimiento.', cols: 2, rows: 2 },
+  { img: show38, title: 'Compartiendo escenario y risas con grandes colegas en el JP Club. La comedia es una familia.', cols: 2 },
+  
+  // Bloque 7
+  { img: show07, title: 'Estilo y comedia. Una pose relajada antes de subir al escenario para entregar lo mejor.' },
+  { img: show31, title: 'Explorando la comedia desde su raíz. Un momento de conexión genuina y vulnerabilidad en el escenario.' },
+  { img: show42, title: 'Presentando el XVI Aniversario de JINEN. Llevando energía y humor a eventos corporativos.', cols: 2 },
+  
+  // Bloque 8
+  { img: show10, title: 'Disfrutando el momento, compartiendo una sonrisa. La comedia es una celebración.', rows: 2, cols: 2 },
+  { img: show25, title: "Listo para el debate en 'Colombia Decide 2023'. Llevando una perspectiva fresca a temas de importancia nacional." },
+  { img: show16, title: 'Un instante de concentración, puliendo cada detalle antes de entregar la punchline.' },
+  
+  // Bloque 9
+  { img: show39, title: '¡Pura energía y buena vibra en el set! Disfrutando cada segundo en uno de los escenarios más icónicos.', cols: 2 },
+  { img: show03, title: 'Un momento de concentración e inspiración, preparando el remate perfecto para el público.', rows: 2, cols: 2 },
+
+  // Bloque 10
+  { img: show28, title: 'La risa es contagiosa. Un instante de pura diversión y goce en medio del show.' },
+  { img: show34, title: 'Rodeado de logros. Cada trofeo, un recordatorio del poder de la comunicación.', cols: 2 },
+  { img: show41, title: "Creando contenido y compartiendo el mensaje de 'Be Yourself' en el set." },
+  
+  // Bloque 11
+  { img: show06, title: 'A veces, el mejor chiste es el que se cuenta con una pausa. Una mirada de complicidad y humor.' },
+  { img: show13, title: 'Con estilo y precisión, ajustando cada detalle para entregar un mensaje claro y divertido.', cols: 2, rows: 2 },
+  { img: show19, title: 'Una mirada de complicidad y humor, ofreciendo el micrófono como una invitación a unirse a la diversión.' },
+
+  // Bloque 12
+  { img: show32, title: '¿Ya es hora de las risas? Encontrando el humor en cada rincón y momento.', cols: 2 },
+  { img: show17, title: 'Compartiendo una anécdota. La comedia se disfruta más cuando nace de una buena historia.' },
+  { img: show30, title: 'Te entrego el poder de la risa. Una invitación a unirte a una experiencia llena de energía y buen humor.' },
+  { img: show29, title: 'El humor en la calle. Encontrando la comedia en los espacios cotidianos de la ciudad.', cols: 2, rows: 2 },
+  { img: show08, title: 'Con la comedia como mi herramienta, apuntando a transformar la noche en una experiencia única.' },
+  { img: show23, title: 'Expandiendo horizontes en la Universidad Europea Miguel de Cervantes. Formación internacional para un impacto global.' },
+  { img: show27, title: '¿Será este el chiste correcto? Un momento de duda cómica y complicidad con el público.' },
+  { img: show15, title: 'Conectando con la audiencia, preparando el momento. Cada palabra cuenta para construir el chiste perfecto.' },
+  { img: show04, title: 'Señalando directamente a la diversión. Una invitación a ver el mundo desde una perspectiva más cómica.' },
 ];
 
-// Patrón de mosaico que se repetirá. Consta de 8 diseños diferentes.
-const pattern = [
-  { cols: 2, rows: 2 }, // Grande
-  { cols: 1, rows: 1 }, // Pequeño
-  { cols: 1, rows: 1 }, // Pequeño
-  { cols: 2, rows: 1 }, // Rectángulo horizontal
-  { cols: 1, rows: 2 }, // Rectángulo vertical
-  { cols: 1, rows: 1 }, // Pequeño
-  { cols: 2, rows: 2 }, // Grande
-  { cols: 2, rows: 1 }, // Rectángulo horizontal
-];
-
-// Creamos la lista de datos para la galería dinámicamente
-const galleryData = allImages.map((image, index) => ({
-  img: image,
-  title: genericTitle,
-  // Usamos el patrón repetitivo para asignar tamaños
-  cols: pattern[index % pattern.length].cols,
-  rows: pattern[index % pattern.length].rows,
-}));
 
 export const GalleryPage = () => {
   const [open, setOpen] = useState(false);
@@ -103,15 +139,15 @@ export const GalleryPage = () => {
       py: { xs: 5, md: 8 },
     }}>
       <Container maxWidth="lg">
-        <Typography variant="h2" component="h1" fontWeight="900" align="center" sx={{ mb: 8 }}>
-          ¡Siente la Energía!
+        <Typography variant="h2" component="h1" fontWeight="600" align="center" sx={{ mb: 8, color: 'secondary.main', fontFamily: 'Bitcount Prop Double, monospace' }}>
+          Be Yourself!
         </Typography>
 
         <ImageList
           sx={{ width: '100%', height: 'auto', overflow: 'hidden' }}
           variant="quilted"
-          cols={4} // El collage se basa en una cuadrícula de 4 columnas
-          rowHeight={200}
+          cols={4}
+          rowHeight={220}
         >
           {galleryData.map((item) => (
             <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}

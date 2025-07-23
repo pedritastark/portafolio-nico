@@ -16,7 +16,6 @@ function App() {
     <BrowserRouter>
       <Navbar />
       
-      {/* 2. Colocamos el botón aquí, en el nivel superior, para que siempre sea visible */}
       <WhatsAppButton />
 
       <Routes>
