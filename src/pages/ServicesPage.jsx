@@ -36,46 +36,17 @@ function createWhatsappUrl(message) {
 // --- INICIA EL NUEVO BLOQUE DE DATOS CON MENSAJES DE WHATSAPP DETALLADOS ---
 const servicesData = [
   {
-      image: showImage,
-      title: "Show: Cada Día Más Top",
-      shortDescription: "Un show de comedia que convierte desafíos cotidianos en crecimiento y resiliencia a través de historias llenas de humor y reflexión.",
-      benefits: [
-        { text: "Reducción del estrés y revitalización de la energía.", icon: iconCorazon },
-        { text: "Fortalecimiento de relaciones y unión entre equipos.", icon: iconEstrella },
-        { text: "Una experiencia memorable que deja una huella positiva.", icon: iconCorona },
-      ],
-      imagePosition: '50% 23%',
-      whatsappUrl: createWhatsappUrl(`
-¡Hola! Estoy interesado en el *Show de Stand-Up "Cada Día Más Top"*. 🌟
-
-Me gustaría recibir más información. Por lo que vi, el show:
--  Convierte desafíos cotidianos en oportunidades de crecimiento.
-- Fortalece la resiliencia y genera conexiones auténticas.
-- Es una terapia emocional completamente adaptable a cualquier evento.
-
-*Beneficios Clave:*
-✅ Reducción del estrés y revitalización de la energía.
-✅ Fomento de la creatividad y la innovación.
-✅ Fortalecimiento de relaciones y equipos.
-
-*Especificaciones:*
-⏱️ Duración: 40-60 min flexibles.
-🎤 Requisitos: Sonido, iluminación y escenario.
-
-¡Quedo atento a tu respuesta! Gracias.
-      `)
-    },
-    {
-      image: conferenciaPositivaImage,
-      title: "Conferencia: Piensa Positivo",
-      shortDescription: "Charla interactiva que explora cómo nuestros pensamientos influyen en nuestras emociones y resultados, usando inspiración, ciencia y experiencias reales.",
-      benefits: [
-        { text: "Activa el poder de la mente para transformar tu vida.", icon: iconEstrella },
-        { text: "Energía que contagia y motiva.", icon: iconCorazon },
-        { text: "Lleva herramientas concretas, no solo inspiración.", icon: iconCorona },
-      ],
-      imagePosition: '50% 72%',
-      whatsappUrl: createWhatsappUrl(`s
+    image: conferenciaPositivaImage,
+    title: "Conferencia: Piensa Positivo y cambia tu vida",
+    shortDescription: "Charla interactiva que explora cómo nuestros pensamientos influyen en nuestras emociones y resultados, usando inspiración, ciencia y experiencias reales.",
+    benefits: [
+      { text: "Activa el poder de la mente para transformar tu vida.", icon: iconEstrella },
+      { text: "Energía que contagia y motiva.", icon: iconCorazon },
+      { text: "Lleva herramientas concretas, no solo inspiración.", icon: iconCorona },
+    ],
+    imagePosition: '50% 72%',
+    isTop: true,
+    whatsappUrl: createWhatsappUrl(`s
 ¡Hola! Quisiera más información sobre la *Conferencia "Piensa Positivo y cambia tu vida"*. 🧠✨
 
 Me interesa mucho la idea de una charla interactiva que transforma la forma en que enfrentamos la vida. Entiendo que:
@@ -94,18 +65,48 @@ Me interesa mucho la idea de una charla interactiva que transforma la forma en q
 
 ¡Espero tu contacto! Gracias.
       `)
-    },
-    {
-      image: conferenciaFinancieraImage,
-      title: "Conferencia: La Mente Financiera",
-      shortDescription: "Liderada por un experto en Finanzas que, con humor y ejercicios dinámicos, hace que conceptos financieros complejos sean claros y aplicables.",
-      benefits: [
-        { text: "Aprende finanzas de forma práctica y entretenida.", icon: iconEstrella },
-        { text: "Mejora hábitos y gestiona mejor tu dinero.", icon: iconCorona },
-        { text: "Combina humor y educación para mantener el interés.", icon: iconCorazon },
-      ],
-      imagePosition:'50% 50%',
-      whatsappUrl: createWhatsappUrl(`
+  },
+  {
+    image: showImage,
+    title: "Show: Cada Día Más Top",
+    shortDescription: "Un show de comedia que convierte desafíos cotidianos en crecimiento y resiliencia a través de historias llenas de humor y reflexión.",
+    benefits: [
+      { text: "Reducción del estrés y revitalización de la energía.", icon: iconCorazon },
+      { text: "Fortalecimiento de relaciones y unión entre equipos.", icon: iconEstrella },
+      { text: "Una experiencia memorable que deja una huella positiva.", icon: iconCorona },
+    ],
+    imagePosition: '50% 23%',
+    whatsappUrl: createWhatsappUrl(`
+¡Hola! Estoy interesado en el *Show de Stand-Up "Cada Día Más Top"*. 🌟
+
+Me gustaría recibir más información. Por lo que vi, el show:
+-  Convierte desafíos cotidianos en oportunidades de crecimiento.
+- Fortalece la resiliencia y genera conexiones auténticas.
+- Es una terapia emocional completamente adaptable a cualquier evento.
+
+*Beneficios Clave:*
+✅ Reducción del estrés y revitalización de la energía.
+✅ Fomento de la creatividad y la innovación.
+✅ Fortalecimiento de relaciones y equipos.
+
+*Especificaciones:*
+⏱️ Duración: 40-60 min flexibles.
+🎤 Requisitos: Sonido, iluminación y escenario.
+
+¡Quedo atento a tu respuesta! Gracias.
+      `)
+  },
+  {
+    image: conferenciaFinancieraImage,
+    title: "Conferencia: La Mente Financiera",
+    shortDescription: "Liderada por un experto en Finanzas que, con humor y ejercicios dinámicos, hace que conceptos financieros complejos sean claros y aplicables.",
+    benefits: [
+      { text: "Aprende finanzas de forma práctica y entretenida.", icon: iconEstrella },
+      { text: "Mejora hábitos y gestiona mejor tu dinero.", icon: iconCorona },
+      { text: "Combina humor y educación para mantener el interés.", icon: iconCorazon },
+    ],
+    imagePosition:'50% 50%',
+    whatsappUrl: createWhatsappUrl(`
 ¡Hola! Estoy muy interesado en la *Conferencia Humorística "La Mente Financiera"*. 💰😂
 
 Me encanta la propuesta de mejorar la relación con el dinero a través del humor. Por lo que leí, la conferencia:
@@ -124,18 +125,18 @@ Me encanta la propuesta de mejorar la relación con el dinero a través del humo
 
 ¡Gracias! Quedo a la espera de más detalles.
       `)
-    },
-    {
-      image: hostImage,
-      title: "Presentador de Eventos (Host)",
-      shortDescription: "El ingrediente secreto para transformar cualquier ocasión en una experiencia única, memorable y llena de energía.",
-      benefits: [
-        { text: "Maestro de ceremonias carismático.", icon: iconCorona },
-        { text: "Versatilidad para conectar con el público.", icon: iconCorazon },
-        { text: "Nivel de inglés para eventos internacionales.", icon: iconEstrella },
-      ],
-      imagePosition:'50% 70%',
-      whatsappUrl: createWhatsappUrl(`
+  },
+  {
+    image: hostImage,
+    title: "Presentador de Eventos (Host)",
+    shortDescription: "El ingrediente secreto para transformar cualquier ocasión en una experiencia única, memorable y llena de energía.",
+    benefits: [
+      { text: "Maestro de ceremonias carismático.", icon: iconCorona },
+      { text: "Versatilidad para conectar con el público.", icon: iconCorazon },
+      { text: "Nivel de inglés para eventos internacionales.", icon: iconEstrella },
+    ],
+    imagePosition:'50% 70%',
+    whatsappUrl: createWhatsappUrl(`
 ¡Hola, Nico! Me gustaría cotizar tu servicio como *Presentador/Host de eventos*. 🎤🎩
 
 Busco transformar mi evento en una experiencia única y memorable. Me interesa tu perfil por:
@@ -147,7 +148,7 @@ Mi evento es [Dejar espacio para que el cliente escriba].
 
 ¡Espero podamos conversar pronto!
       `)
-    },
+  },
 ];
 
 const loopedServicesData = [...servicesData, ...servicesData];

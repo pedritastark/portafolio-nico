@@ -2,6 +2,7 @@
 import React from 'react';
 import { Box, Typography, Button, Stack, Card, CardContent, Container } from '@mui/material';
 import { Link } from 'react-router-dom';
+import isotipoPurpura from '../assets/isotipo-purpura.png'
 
 export const HeroSection = () => {
   // --- CAMBIO AQUÍ: Pega la URL de "Incorporar" de tu video de YouTube ---
@@ -63,6 +64,19 @@ export const HeroSection = () => {
                 >
                   Nicolás Garzón
                 </Typography>
+
+
+                <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+                  <Box
+                    component="img"
+                    src={isotipoPurpura}
+                    alt="Isotipo de Nicolás Garzón"
+                    sx={{
+                      width: { xs: 150, md: 200 },
+                      height: 'auto',
+                    }}
+                  />
+                </Box>
                 
                 <Typography
                   variant="h6"

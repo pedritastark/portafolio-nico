@@ -1,8 +1,8 @@
 // src/components/ServiceCard.jsx
 import React from 'react';
-import { Card, CardContent, CardMedia, Typography, Button, Stack, List, ListItem, ListItemIcon } from '@mui/material';
+import { Card, CardContent, CardMedia, Typography, Button, Stack, List, ListItem, ListItemIcon, Box } from '@mui/material';
 
-export const ServiceCard = ({ image, title, shortDescription, benefits, imagePosition, whatsappUrl }) => {
+export const ServiceCard = ({ image, title, shortDescription, benefits, imagePosition, whatsappUrl, isTop }) => {
   return (
     <Card sx={{
       backgroundColor: '#ffffff',
@@ -11,7 +11,28 @@ export const ServiceCard = ({ image, title, shortDescription, benefits, imagePos
       display: 'flex',
       flexDirection: 'column',
       boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+      position: 'relative', // Para posicionar la viñeta
     }}>
+      {/* Viñeta TOP */}
+      {isTop && (
+        <Box sx={{
+          position: 'absolute',
+          top: 16,
+          right: 16,
+          background: 'linear-gradient(90deg, #ffab00 60%, #fffbe6 100%)',
+          color: '#222',
+          fontWeight: 'bold',
+          fontSize: '0.95rem',
+          px: 2,
+          py: 0.5,
+          borderRadius: '16px',
+          boxShadow: '0 2px 8px rgba(0,0,0,0.10)',
+          zIndex: 2,
+          letterSpacing: 1,
+        }}>
+          TOP
+        </Box>
+      )}
       <CardMedia
         component="img"
         image={image}
@@ -33,7 +54,7 @@ export const ServiceCard = ({ image, title, shortDescription, benefits, imagePos
             {benefits.map((benefit, index) => (
               <ListItem key={index} disablePadding sx={{ mb: 1 }}>
                 <ListItemIcon sx={{ minWidth: 44 }}>
-                  <img src={benefit.icon} alt="icon" style={{ width: '32px', height: 'auto' }}/>
+                  <img src={benefit.icon} alt="icon" style={{ width: '50px', height: 'auto' }}/>
                 </ListItemIcon>
                 <Typography variant="body2" color="text.secondary">{benefit.text}</Typography>
               </ListItem>

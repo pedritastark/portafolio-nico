@@ -3,7 +3,7 @@ import React from 'react';
 import { Box, Typography, Container, Grid, Card, CardContent, Stack, List, ListItem, ListItemIcon } from '@mui/material';
 
 // Fondos e imágenes
-import fondoSecundario from '../assets/fondo-secundario.jpg';
+import fondoSecundario from '../assets/fondo-principal.jpg';
 import isotipoPurpura from '../assets/isotipo-purpura.png';
 import iconCorona from '../assets/icon-corona.jpg';
 import iconEstrella from '../assets/icon-estrella.jpg';
@@ -93,7 +93,7 @@ export const AboutPage = () => {
                         {items.map((item, index) => (
                           <ListItem key={index} disablePadding sx={{ mb: 1.5 }}>
                             <ListItemIcon sx={{ minWidth: 44 }}>
-                              <img src={item.icon} alt="icon" style={{ width: '32px', height: 'auto' }} />
+                              <img src={item.icon} alt="icon" style={{ width: '60px', height: 'auto' }} />
                             </ListItemIcon>
                             <Typography variant="body1" color="text.secondary">{item.text}</Typography>
                           </ListItem>

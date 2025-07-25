@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Box, Typography, Container, ImageList, ImageListItem, Modal, Fade } from '@mui/material';
 import fondoNegro from '../assets/fondo-negro.png';
+import beYourselfImg from '../assets/be-yourself.png';
 
 // --- IMPORTACIÓN DE LAS 42 IMÁGENES ---
 // (Las importaciones se mantienen igual)
@@ -139,9 +140,14 @@ export const GalleryPage = () => {
       py: { xs: 5, md: 8 },
     }}>
       <Container maxWidth="lg">
-        <Typography variant="h2" component="h1" fontWeight="600" align="center" sx={{ mb: 8, color: 'secondary.main', fontFamily: 'Bitcount Prop Double, monospace' }}>
-          Be Yourself!
-        </Typography>
+        {/* Reemplazar el título de texto por la imagen be-yourself.png */}
+        <Box sx={{ display: 'flex', justifyContent: 'center', mb: 2 }}>
+          <img
+            src={beYourselfImg}
+            alt="Be Yourself!"
+            style={{ maxWidth: '620px', width: '100%', height: 'auto', display: 'block' }}
+          />
+        </Box>
 
         <ImageList
           sx={{ width: '100%', height: 'auto', overflow: 'hidden' }}
