@@ -14,7 +14,7 @@ import 'swiper/css/effect-coverflow';
 import { ServiceCard } from '../components/ServiceCard';
 import fondoNegro from '../assets/fondo-negro.png';
 import showImage from '../assets/show-image.jpeg';
-import conferenciaPositivaImage from '../assets/gallery/show-26.jpg';
+import conferenciaPositivaImage from '../assets/sabados-felices.jpeg';
 import conferenciaFinancieraImage from '../assets/gallery/show-22.jpg';
 import hostImage from '../assets/host-image.jpeg';
 

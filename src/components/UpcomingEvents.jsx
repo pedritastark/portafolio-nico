@@ -10,12 +10,29 @@ const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
 
 const upcomingShows = [
   {
-    date: { month: 'FEB', day: '22' },
+    date: { month: 'AGO', day: '30' },
     city: 'Bogotá, CO',
-    venue: 'Evento Especial de Comedia',
-    ticketUrl: whatsappUrl, // El botón ahora apunta a WhatsApp
+    venue: 'Evento Privado',
+    ticketUrl: whatsappUrl,
   },
-  // Puedes añadir más eventos aquí en el futuro
+  {
+    date: { month: 'SEP', day: '29' },
+    city: 'Armenia, CO',
+    venue: 'Evento Privado',
+    ticketUrl: whatsappUrl,
+  },
+  {
+    date: { month: 'OCT', day: '18' },
+    city: 'Bogotá, CO',
+    venue: 'Evento Privado',
+    ticketUrl: whatsappUrl,
+  },
+  {
+    date: { month: 'NOV', day: '19' },
+    city: 'Medellín, CO',
+    venue: 'Evento Privado',
+    ticketUrl: whatsappUrl,
+  },
 ];
 
 export const UpcomingEvents = () => {
