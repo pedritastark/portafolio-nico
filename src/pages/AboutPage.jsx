@@ -60,7 +60,7 @@ export const AboutPage = () => {
                 <Typography variant="h4" component="h2" fontWeight="bold" textAlign="center">
                   ¿Quién Soy?
                 </Typography>
-                <Typography variant="h6" color="primary" fontWeight="600" textAlign="center">
+                <Typography variant="h6" color="secondary" fontWeight="600" textAlign="center">
                   Comediante, Conferencista, Profesional en Finanzas, Empresario y Coach de Vida.
                 </Typography>
                 <Typography variant="body1" color="text.secondary" textAlign="center" sx={{ maxWidth: '600px' }}>
@@ -75,18 +75,13 @@ export const AboutPage = () => {
 
           {/* --- SECCIÓN DE TRAYECTORIA (NUEVA ESTRUCTURA) --- */}
           <Box>
-            {/* 1. Título principal fuera de las tarjetas */}
-            <Typography variant="h3" component="h2" fontWeight="900" align="center" sx={{ color: 'white', mb: 4 }}>
-              Trayectoria
-            </Typography>
-            {/* 2. Grid que contendrá una tarjeta por cada categoría */}
             <Grid container spacing={4}>
               {Object.entries(trajectoryData).map(([category, items]) => (
                 // Lógica responsiva: En móvil 1 columna, en tablet/desktop 2 columnas
                 <Grid item xs={12} sm={6} key={category}>
                   <Card sx={{ borderRadius: 3, p: 2, height: '100%' }}>
                     <CardContent>
-                      <Typography variant="h5" fontWeight="bold" color="primary.main" sx={{ mb: 2 }}>
+                      <Typography variant="h5" fontWeight="bold" color="secondary.main" sx={{ mb: 2 }}>
                         {category}
                       </Typography>
                       <List>
