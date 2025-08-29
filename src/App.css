@@ -1,10 +1,9 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  /* Se quita el centrado y el padding para que no afecte a todas las páginas */
+  width: 100%;
 }
 
+/* ... el resto de tu css no cambia ... */
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -15,7 +14,7 @@
   filter: drop-shadow(0 0 2em #646cffaa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop_shadow(0 0 2em #61dafbaa);
 }
 
 @keyframes logo-spin {
