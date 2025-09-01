@@ -118,7 +118,7 @@ export const HeroSection = () => {
 
                 <Box sx={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
                   <Stack direction="row" spacing={3} sx={{ pt: 2 }}>
-                    <Button component={Link} to="/talleres" variant="contained" color="primary" size="large" sx={{ fontWeight: 'bold' }}>
+                    <Button component={Link} to="/taller-mas-risas-menos-miedos" variant="contained" color="primary" size="large" sx={{ fontWeight: 'bold' }}>
                       Ver Talleres
                     </Button>
                     <Button component={Link} to="/servicios" variant="contained" color="secondary" size="large" sx={{ fontWeight: 'bold', color: 'black' }}>

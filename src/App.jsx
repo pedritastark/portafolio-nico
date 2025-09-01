@@ -28,7 +28,7 @@ function App() {
           <Route path="/contacto" element={<ContactPage />} />
           
           {/* Ruta de Workshops ya ocupa toda la pantalla */}
-          <Route path="/talleres" element={<WorkshopsPage />} />
+          <Route path="/taller-mas-risas-menos-miedos" element={<WorkshopsPage />} />
         </Routes>
       </main>
     </BrowserRouter>

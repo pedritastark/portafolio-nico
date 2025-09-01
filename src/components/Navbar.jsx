@@ -10,7 +10,7 @@ const navItems = [
   { text: 'Inicio', path: '/' },
   { text: 'Acerca de Mí', path: '/acerca' },
   { text: 'Servicios', path: '/servicios' },
-  { text: 'Talleres', path: '/talleres' },
+  { text: 'Talleres', path: '/taller-mas-risas-menos-miedos' },
   { text: 'Galería', path: '/galeria' },
   { text: 'Contacto', path: '/contacto' },
 ];
